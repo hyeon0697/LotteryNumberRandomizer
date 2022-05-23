@@ -33,6 +33,7 @@ while(1):
     print("1. bestNumber 6\n")
     print("2. bestNumber 7\n")
     print("3. how Many Count Number?\n")
+    print("9. help\n")
     print("0. end Program\n")
 
     print("select your choice : ", end="")
@@ -50,17 +51,16 @@ while(1):
         uf.printResult(bestNumber)
         print("press Enter...", end="")
         input()
-        pass
     elif cNum == 3:
         print("select 6 or 7? : ", end="")
-        hNum = int(input())
+        num = int(input())
 
-        if 6 == hNum:
+        if 6 == num:
             uf.countLottery6(count_list)
             uf.howManyCount(count_list)
             print("press Enter...", end="")
             input()
-        elif 7 == hNum:
+        elif 7 == num:
             uf.countLottery7(count_list)
             uf.howManyCount(count_list)
             print("press Enter...", end="")
@@ -69,6 +69,39 @@ while(1):
             print("plese, don't put it other number")
             print("press Enter...", end="")
             input()
+    elif cNum == 9:
+        print("\n\n\n")
+        print("#########################################################################")
+        print("#########################################################################")
+        print("###############################help menu#################################")
+        print("#########################################################################")
+        print("#########################################################################")
+        print("\n\n\n")
+
+        print("1. bestNumber 6\n")
+        print("2. bestNumber 7\n")
+        print("3. how Many Count Number?\n")
+
+        print("select your choice : ", end="")
+        hNum = int(input())
+        if hNum == 1:
+            print("'bestNumber 6' is randomize Lottery Number, in Lottery source called 'winning number' select 6 pieces")
+            print("press Enter...", end="")
+            input()
+        elif hNum == 2:
+            print("'bestNumber 7' is randomize Lottery Number, in Lottery source called 'winning number' select 7 pieces")
+            print("press Enter...", end="")
+            input()
+        elif hNum == 3:
+            print(
+                "'how Many Count Number' is in 45 pieces lottery numbers, counting how much each output")
+            print("press Enter...", end="")
+            input()
+        else:
+            print("plese, don't put it other number")
+            print("press Enter...", end="")
+            input()
+            continue
     elif cNum == 0:
         print("are you realy end this program? [y/n] : ", end="")
         answer = input()
@@ -80,6 +113,8 @@ while(1):
             print("plese, don't put it other char")
             print("press Enter...", end="")
             input()
+            continue
+
     else:
         print("plese, don't put it other number")
         print("press Enter...", end="")
