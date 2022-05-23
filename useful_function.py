@@ -1,5 +1,8 @@
 import pandas as pd
 import location as lo
+import random
+import copy
+import numpy
 
 
 def makeLottery():
@@ -32,3 +35,24 @@ def countLottery7(countList):
 def howManyCount(countList):
     for i in range(45):
         print("No.", i+1, "inside : ", countList[i])
+
+
+def printResult(listName):
+    for i in range(5):
+        print("-------list", i+1, "Number-------")
+        random.shuffle(listName)
+        for i in range(6):
+            print("No.", i+1, ":", listName[i]+1)
+
+
+def resultOfBestNumber(listName, bestNumList):
+    tempList = copy.deepcopy(listName)
+    tempList.sort(reverse=True)
+
+    listName = numpy.array(listName)
+
+    for i in range(15):
+        bestNumList += list(numpy.where(listName == tempList[i])[0])
+
+    bestNumList = list(set(bestNumList))
+    bestNumList.sort()
