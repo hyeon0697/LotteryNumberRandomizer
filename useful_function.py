@@ -40,6 +40,7 @@ def howManyCount(countList):
 def printResult(listName):
     for i in range(5):
         print("-------list", i+1, "Number-------")
+        listName = list(set(listName))
         random.shuffle(listName)
         for i in range(6):
             print("No.", i+1, ":", listName[i]+1)
@@ -51,7 +52,7 @@ def resultOfBestNumber(listName, bestNumList):
 
     listName = numpy.array(listName)
 
-    for i in range(15):
+    for i in range(20):
         bestNumList += list(numpy.where(listName == tempList[i])[0])
 
     bestNumList = list(set(bestNumList))

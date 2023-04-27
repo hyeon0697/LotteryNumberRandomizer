@@ -14,6 +14,19 @@
 
 import useful_function as uf
 
+import sys
+import subprocess
+
+try:
+    # 없는 모듈 import시 에러 발생
+    import pandas
+except:
+    # pip 모듈 업그레이드
+    subprocess.check_call([sys.executable,'-m', 'pip', 'install', '--upgrade', 'pip'])
+    # 에러 발생한 모듈 설치
+    subprocess.check_call([sys.executable,'-m', 'pip', 'install', '--upgrade', 'pandas'])
+    # 다시 import
+    import pandas
 
 uf.makeLottery()
 
@@ -37,7 +50,12 @@ while(1):
     print("0. end Program\n")
 
     print("select your choice : ", end="")
-    cNum = int(input())
+    cNum = input()
+    if cNum == '':
+        continue
+    else:
+        cNum = int(cNum)
+    
 
     if cNum == 1:
         uf.countLottery6(count_list)
@@ -83,7 +101,13 @@ while(1):
         print("3. how Many Count Number?\n")
 
         print("select your choice : ", end="")
-        hNum = int(input())
+        hNum = input()
+
+        if hNum == '':
+            continue
+        else:
+            hNum = int(hNum)
+
         if hNum == 1:
             print("'bestNumber 6' is randomize Lottery Number, in Lottery source called 'winning number' select 6 pieces")
             print("press Enter...", end="")
